@@ -16,6 +16,10 @@ export default {
     ],
   },
 
+  // router: {
+  //   middleware: 'index',
+  // },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 

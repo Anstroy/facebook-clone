@@ -18,7 +18,8 @@
           <div class="mb-4">
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
+              id="email"
+              v-model="email"
               type="text"
               placeholder="Email"
             />
@@ -28,6 +29,7 @@
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               id="password"
               type="password"
+              v-model="password"
               placeholder="Password"
             />
           </div>
@@ -36,6 +38,7 @@
             <a
               class="text-center cursor-pointer bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
+              @click="login"
             >
               Log In
             </a>
@@ -65,6 +68,25 @@
 <script>
 export default {
   layout: 'auth',
+  data: () => ({
+    email: 'nieve@gmail.com',
+    password: 'nieve123',
+  }),
+  created() {
+    // this.$store.dispatch('checkLogin')
+  },
+  methods: {
+    login() {
+      this.$store
+        .dispatch('login', {
+          email: this.email,
+          password: this.password,
+        })
+        .then(() => {
+          this.$router.push('/')
+        })
+    },
+  },
 }
 </script>
 
