@@ -26,6 +26,7 @@ export const actions = {
     }
   },
   async logout(ctx) {
+    console.log('logging out')
     await appwrite.account.deleteSession('current')
     ctx.commit('REMOVE_USER')
   },
